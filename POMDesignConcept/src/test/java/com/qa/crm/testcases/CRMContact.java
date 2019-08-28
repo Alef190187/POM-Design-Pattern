@@ -3,6 +3,7 @@ package com.qa.crm.testcases;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import com.qa.crm.base.TestBase;
@@ -18,6 +19,7 @@ public class CRMContact extends TestBase {
 	ContactsPage contactpage;
 	DealsPage dealspage;
 	TestUtil testUtil;
+	String sheetName="Contact";
 	
 	public CRMContact() {
 		super();
@@ -54,7 +56,20 @@ public class CRMContact extends TestBase {
 	public void clickOncontactTest() {
 		contactpage.clickOnContact();
 	}
+	 @DataProvider//getting data from excelsheet.
+	 public Object[][] getCRMTestData() {
+		 Object data[][] = TestUtil.getTestData(sheetName);
+		 return data;
+	 }
+	 
+	 
+	@Test(priority=4, dataProvider="getCRMTestData")
 	
+	public void verifyCreateContactTest(String title, String firstname, String lastname, String company) {
+		homepage.createNewContact();
+		contactpage.createNewContact(title, firstname, lastname, company);
+		//contactpage.createNewContact("Mr.", "Alif", "Khan", "Google");
+	}
 	
 	
 	
