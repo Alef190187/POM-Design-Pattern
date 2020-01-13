@@ -1,20 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
-<suite guice-stage="DEVELOPMENT" name="Failed suite [POM Design Automation Test]">
-  <listeners>
-    <listener class-name="com.qa.extentReportListener.ExtentReporterListenerNG"/>
-  </listeners>
-  <test thread-count="5" name="FreeCRMTest(failed)">
+<suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
+  <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.qa.crm.testcases.CRMContact">
+      <class name="com.qa.crm.testcases.CRMLoginPage">
         <methods>
-          <include name="verifyNewContactTest"/>
-          <include name="tearDown"/>
-          <include name="verifyCreateContactTest"/>
-          <include name="verifycontactLebelTest"/>
+          <include name="clickOnSgnUpBtn"/>
+          <include name="verifyLoginTitleTest"/>
+          <include name="LoginIntoCrmTest"/>
           <include name="setUp"/>
+          <include name="verifycrmLogoTest"/>
+          <include name="tearDown"/>
         </methods>
-      </class> <!-- com.qa.crm.testcases.CRMContact -->
+      </class> <!-- com.qa.crm.testcases.CRMLoginPage -->
     </classes>
-  </test> <!-- FreeCRMTest(failed) -->
-</suite> <!-- Failed suite [POM Design Automation Test] -->
+  </test> <!-- Default test(failed) -->
+</suite> <!-- Failed suite [Default suite] -->
